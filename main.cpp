@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-bool askQuestion (string questions[], string answers[][5], char correctAnswers[]);
+bool askQuestion (string questions, string answers[4], char correctAnswers);
 
 int main() {
 
@@ -16,7 +16,7 @@ int main() {
 
 
     // Array of answers
-    string answers [][5] = { // question 1 answers - A
+    string answers [][4] = { // question 1 answers - A
                             {"A- In a barrel lost at sea", "B- Imprisoned by an enemy", "C- With Shanks",
                                 "D- Training to be a marine" },
                              // question 2 answers - C
@@ -31,37 +31,36 @@ int main() {
                             {"A- Enma", "B- Wado-Ichimoji", "C- Sandai Kitetsu", "D- Shusui"}
                             };
 
-    /* size of answers array */
-    constexpr int answerRows = sizeof(answers) / sizeof(answers[0]);
-    int answerCols = sizeof(answers) / sizeof(answers[0]);
-
-
     // Array to hold the correct answers to check against user input
     char correctAnswers[] = {'A', 'C', 'B', 'D', 'B'};
-
-    /* size of correctAnswer array */
-    int correctAnswerSize = sizeof(correctAnswers) / sizeof(correctAnswers[0]);
 
     cout << "Welcome to the One Piece Quiz game!\n";
     cout << "Choose A, B, C or D to decide your answer\n\n";
 
-    char userGuess;
-
     // Display the questions
     for (int i = 0; i < questionSize; i++) {
-        cout << questions[i] << "\n";
+        askQuestion(questions[i], answers[i], correctAnswers[i]);
 
-        // Display each of the possible answers
-        for (int j = 0; j < answerRows; j++) {
-            cout << answers[i][j] << "\n";
-        }
-        // Ask for user input after the inner loop for all the answers to display
-        cin >> userGuess;
     }
 }
 
-bool askQuestion (string questions[], string answers[][5], char correctAnswers[]) {
-    return true;
+bool askQuestion (string question, string answer[4], char correctAnswers) {
+
+    char userGuess;
+
+    cout << question << "\n";
+
+    for (int i = 0; i < 4; i++) {
+        cout << answer[i] << "\n";
+        }
+
+    cout << "What is your answer?\n";
+    cin >> userGuess;
+
+    if (userGuess == correctAnswers) {
+        cout << "Correct answer!\n";
+        return true;
+    }
+    cout << "Incorrect answer!\n";
+    return false;
 }
-/* Process each question in the function
- * Loop to the next question in the main function */
