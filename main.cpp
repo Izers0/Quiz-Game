@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-bool askQuestion (string questions[], string answers[][4], char correctAnswers[]);
+bool askQuestion (string questions[], string answers[][5], char correctAnswers[]);
 
 int main() {
 
@@ -11,42 +11,50 @@ int main() {
                             "3. Where did luffy first meet Nami?",
                             "4. What is Usopp most known for?",
                             "5. What is the name of the sword Zoro first recieved?"};
+    /* size of questions array */
+    constexpr int questionSize = sizeof(questions) / sizeof(questions[0]);
 
-    /* size of questions array
-    int questionSize = sizeof(questions) / sizeof(questions[0]);
-    */
 
     // Array of answers
-    string answers [][4] = { // question 1 answers - A
-                            {"In a barrel lost at sea", "Imprisoned by an enemy", "With Shanks",
-                                "Training to be a marine" },
+    string answers [][5] = { // question 1 answers - A
+                            {" A- In a barrel lost at sea", " B- Imprisoned by an enemy", " C- With Shanks",
+                                "D- Training to be a marine" },
                              // question 2 answers - C
-                            {"To cook the best meal in the world", "To own his own restaurant",
-                                "To find the All-Blue", "To be Stronger than Zoro"},
+                            {"A- To cook the best meal in the world", "B- To own his own restaurant",
+                                "C- To find the All-Blue", "D- To be Stronger than Zoro"},
                              // question 3 answers - B
-                            {"Arlong Park", "On his way to Orange Town", "The Grandline",
-                                "Alabasta"},
+                            {"A- Arlong Park", "B- On his way to Orange Town", "C- The Grandline",
+                                "D- Alabasta"},
                              // question 4 answers - D
-                            {"Being a good captain", "His inventions", "Art", "Lying"},
+                            {"A- Being a good captain", "B- His inventions", "C- Art", "D- Lying"},
                              // question 5 answers - B
-                            {"Enma", "Wado-Ichimoji", " Sandai Kitetsu", "Shusui"}
+                            {"A- Enma", "B- Wado-Ichimoji", "C- Sandai Kitetsu", "D- Shusui"}
                             };
 
-    /* size of answers array
-    int answerRows = sizeof(answers) / sizeof(answers[0]);
+    /* size of answers array */
+    constexpr int answerRows = sizeof(answers) / sizeof(answers[0]);
     int answerCols = sizeof(answers) / sizeof(answers[0]);
-    */
+
 
     // Array to hold the correct answers to check against user input
     char correctAnswers[] = {'A', 'C', 'B', 'D', 'B'};
 
-    /* size of correctAnswer array
+    /* size of correctAnswer array */
     int correctAnswerSize = sizeof(correctAnswers) / sizeof(correctAnswers[0]);
-    */
 
-    askQuestion(questions, answers, correctAnswers);
+    // Display the questions
+    for (int i = 0; i < questionSize; i++) {
+        cout << questions[i] << "\n";
+
+        // Display each of the possible answers
+        for (int j = 0; j < answerRows; j++) {
+             cout << answers[i][j] << "\n";
+        }
+    }
 }
 
-bool askQuestion (string questions[], string answers[][4], char correctAnswers[]) {
+bool askQuestion (string questions[], string answers[][5], char correctAnswers[]) {
     return true;
 }
+/* Process each question in the function
+ * Loop to the next question in the main function */
