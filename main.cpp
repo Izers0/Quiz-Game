@@ -11,6 +11,7 @@ int main() {
                             "3. Where did luffy first meet Nami?",
                             "4. What is Usopp most known for?",
                             "5. What is the name of the sword Zoro first recieved?"};
+
     /* size of questions array */
     constexpr int questionSize = sizeof(questions) / sizeof(questions[0]);
 
@@ -44,12 +45,15 @@ int main() {
     }
 }
 
+// Take the current question, display all possible results and compare user input to correct answer
 bool askQuestion (string question, string answer[4], char correctAnswers) {
 
     char userGuess;
 
+    // print the current question
     cout << question << "\n";
 
+    // display all the answers for the current question
     for (int i = 0; i < 4; i++) {
         cout << answer[i] << "\n";
         }
@@ -57,6 +61,7 @@ bool askQuestion (string question, string answer[4], char correctAnswers) {
     cout << "What is your answer?\n";
     cin >> userGuess;
 
+    // if the user guess is correct return ture, else return false
     if (userGuess == correctAnswers) {
         cout << "Correct answer!\n";
         return true;
