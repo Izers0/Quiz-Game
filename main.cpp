@@ -41,7 +41,6 @@ int main() {
     // Display the questions
     for (int i = 0; i < questionSize; i++) {
         askQuestion(questions[i], answers[i], correctAnswers[i]);
-
     }
 }
 
@@ -60,6 +59,9 @@ bool askQuestion (string question, string answer[4], char correctAnswers) {
 
     cout << "What is your answer?\n";
     cin >> userGuess;
+
+    // make the users guess uppercase
+    userGuess = toupper(userGuess);
 
     // if the user guess is correct return ture, else return false
     if (userGuess == correctAnswers) {
