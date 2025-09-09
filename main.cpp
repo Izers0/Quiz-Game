@@ -17,7 +17,7 @@ int main() {
 
     // Array of answers
     string answers [][5] = { // question 1 answers - A
-                            {" A- In a barrel lost at sea", " B- Imprisoned by an enemy", " C- With Shanks",
+                            {"A- In a barrel lost at sea", "B- Imprisoned by an enemy", "C- With Shanks",
                                 "D- Training to be a marine" },
                              // question 2 answers - C
                             {"A- To cook the best meal in the world", "B- To own his own restaurant",
@@ -42,14 +42,21 @@ int main() {
     /* size of correctAnswer array */
     int correctAnswerSize = sizeof(correctAnswers) / sizeof(correctAnswers[0]);
 
+    cout << "Welcome to the One Piece Quiz game!\n";
+    cout << "Choose A, B, C or D to decide your answer\n\n";
+
+    char userGuess;
+
     // Display the questions
     for (int i = 0; i < questionSize; i++) {
         cout << questions[i] << "\n";
 
         // Display each of the possible answers
         for (int j = 0; j < answerRows; j++) {
-             cout << answers[i][j] << "\n";
+            cout << answers[i][j] << "\n";
         }
+        // Ask for user input after the inner loop for all the answers to display
+        cin >> userGuess;
     }
 }
 
